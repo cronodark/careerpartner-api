@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_skills', function (Blueprint $table) {
+        Schema::create('volunteer_activity_skills', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('talent_id')->constrained('talents')->onDelete('cascade');
+            $table->foreignId('volunteer_activity_id')->constrained('volunteer_activities')->onDelete('cascade');
             $table->foreignId('skill_id')->constrained('skills')->onDelete('cascade');
-            $table->enum('proficiency', ['beginner', 'intermediate', 'advanced'])->default('beginner');
-            $table->string('years_of_experience')->nullable();
+            $table->unique(['volunteer_activity_id', 'skill_id']);
             $table->timestamps();
-
-            $table->unique(['talent_id', 'skill_id']);
         });
     }
 
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_skills');
+        Schema::dropIfExists('volunteer_activity_skills');
     }
 };

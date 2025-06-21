@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('internships', function (Blueprint $table) {
+        Schema::create('volunteer_activities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
+            $table->foreignId('organization_id')->constrained('organizations')->onDelete('cascade');
             $table->string('title');
             $table->text('description');
             $table->string('location');
-            $table->text('responsibilities');
-            $table->text('requirements');
-            $table->enum('status', ['open', 'closed', 'draft'])->default('open');
+            $table->enum('status', ['open', 'closed', 'completed', 'cancelled'])->default('open');
+            $table->string('image_cover')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('internships');
+        Schema::dropIfExists('volunteer_activities');
     }
 };

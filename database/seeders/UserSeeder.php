@@ -25,8 +25,6 @@ class UserSeeder extends Seeder
             'phone' => $faker->phoneNumber,
             'role' => 'talent',
             'profile_picture' => $faker->imageUrl(640, 480, 'people', true, 'Faker'),
-            'date_of_birth' => $faker->date(),
-            'gender' => $faker->randomElement(['M', 'F']),
         ]);
 
         User::create([
@@ -37,8 +35,6 @@ class UserSeeder extends Seeder
             'phone' => $faker->phoneNumber,
             'role' => 'talent',
             'profile_picture' => $faker->imageUrl(640, 480, 'people', true, 'Faker'),
-            'date_of_birth' => $faker->date(),
-            'gender' => $faker->randomElement(['M', 'F']),
         ]);
 
         User::create([
@@ -49,8 +45,6 @@ class UserSeeder extends Seeder
             'phone' => $faker->phoneNumber,
             'role' => 'company',
             'profile_picture' => $faker->imageUrl(640, 480, 'people', true, 'Faker'),
-            'date_of_birth' => $faker->date(),
-            'gender' => $faker->randomElement(['M', 'F']),
         ]);
 
         User::create([
@@ -61,8 +55,6 @@ class UserSeeder extends Seeder
             'phone' => $faker->phoneNumber,
             'role' => 'company',
             'profile_picture' => $faker->imageUrl(640, 480, 'people', true, 'Faker'),
-            'date_of_birth' => $faker->date(),
-            'gender' => $faker->randomElement(['M', 'F']),
         ]);
 
         User::create([
@@ -73,8 +65,6 @@ class UserSeeder extends Seeder
             'phone' => $faker->phoneNumber,
             'role' => 'organization',
             'profile_picture' => $faker->imageUrl(640, 480, 'people', true, 'Faker'),
-            'date_of_birth' => $faker->date(),
-            'gender' => $faker->randomElement(['M', 'F']),
         ]);
 
         User::create([
@@ -85,8 +75,6 @@ class UserSeeder extends Seeder
             'phone' => $faker->phoneNumber,
             'role' => 'organization',
             'profile_picture' => $faker->imageUrl(640, 480, 'people', true, 'Faker'),
-            'date_of_birth' => $faker->date(),
-            'gender' => $faker->randomElement(['M', 'F']),
         ]);
     }
 }

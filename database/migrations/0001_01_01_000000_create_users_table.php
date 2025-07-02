@@ -20,8 +20,6 @@ return new class extends Migration
             $table->string('password');
             $table->enum('role', ['company', 'organization', 'talent'])->default('talent');
             $table->string('profile_picture')->nullable();
-            $table->date('date_of_birth');
-            $table->enum('gender',['M', 'F'])->default('M');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

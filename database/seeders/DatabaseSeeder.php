@@ -24,6 +24,11 @@ class DatabaseSeeder extends Seeder
             InternshipSkillSeeder::class,
             VolunteerActivitySeeder::class,
             VolunteerActivitySkillSeeder::class,
+            InterestsSeeder::class,
+            AchievementSeeder::class,
+            ExperienceSeeder::class,
+            ProjectSeeder::class,
+            EducationHistorySeeder::class,
         ]);
     }
 }

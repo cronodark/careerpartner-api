@@ -22,8 +22,10 @@ class TalentSeeder extends Seeder
             Talent::create([
                 'user_id' => $user,
                 'current_education' => $faker->randomElement(['High School', 'Bachelor\'s Degree', 'Master\'s Degree', 'PhD']),
-                'major' => $faker->randomElement(['Computer Science', 'Engineering', 'Business', 'Arts', 'Science']),
-                'interests' => $faker->randomElement(['Tech', 'Sosial', 'Environment', 'Health', 'Space']),
+                'goal_career' => $faker->jobTitle,
+                'description' => $faker->paragraph(rand(1, 3)),
+                'expected_salary' => $faker->numberBetween(30000, 120000),
+                'date_of_birth' => $faker->date(),
             ]);
         }
     }

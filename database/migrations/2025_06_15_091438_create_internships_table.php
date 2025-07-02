@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
             $table->string('title');
             $table->text('description');
+            $table->string('image_cover')->nullable();
             $table->string('location');
             $table->text('responsibilities');
             $table->text('requirements');

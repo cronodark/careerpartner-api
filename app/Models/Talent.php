@@ -12,8 +12,10 @@ class Talent extends Model
     protected $fillable = [
         'user_id',
         'current_education',
-        'major',
-        'interests',
+        'goal_career',
+        'description',
+        'expected_salary',
+        'date_of_birth',
     ];
 
     public function user()
@@ -24,5 +26,30 @@ class Talent extends Model
     public function skills()
     {
         return $this->hasMany(UserSkill::class);
+    }
+
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
+    }
+
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
+    public function achievements()
+    {
+        return $this->hasMany(Achievement::class);
+    }
+
+    public function interests()
+    {
+        return $this->hasMany(Interest::class);
+    }
+
+    public function educationHistories()
+    {
+        return $this->hasMany(EducationHistory::class);
     }
 }

@@ -71,14 +71,14 @@ class AuthController extends Controller
     public function register(Request $request){
         $validator = Validator::make($request->all(),[
             'full_name' => 'required|string|max:255',
-            'phone' => 'nullable|string|unique:users|max:15',
+            'phone' => 'required|string|unique:users|max:15',
             'username' => 'required|string|unique:users|max:255',
             'email' => 'required|email|unique:users',
             'password' => 'required|string',
             'role' => 'required|in:company,organization,talent',
             'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg',
-            'date_of_birth' => 'required|date',
-            'gender' => 'required|in:M,F',
+            'date_of_birth' => 'nullable|date',
+            'gender' => 'nullable|in:m,f',
 
 
             'company_name' => 'required_if:role,company|string|max:255',
@@ -95,10 +95,6 @@ class AuthController extends Controller
             'organization_contact_email' => 'nullable|email|max:255',
             'organization_contact_phone' => 'nullable|string|max:15',
             'status' => 'required_if:role,organization|in:active,inactive,pending',
-
-            'current_education' => 'required_if:role,talent|string|max:255',
-            'major' => 'required_if:role,talent|string|max:255',
-            'interests' => 'nullable|string|max:1000',
         ]);
 
         if ($validator->fails()) {
@@ -159,9 +155,6 @@ class AuthController extends Controller
             case 'talent':
                 $talent = Talent::create([
                     'user_id' => $user->id,
-                    'current_education' => $request->input('current_education'),
-                    'major' => $request->input('major'),
-                    'interests' => $request->input('interests'),
                 ]);
                 break;
             default:

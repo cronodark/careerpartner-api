@@ -14,9 +14,11 @@ return new class extends Migration
         Schema::create('talents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('current_education');
-            $table->string('major');
-            $table->text('interests')->nullable();
+            $table->string('current_education')->nullable();
+            $table->string('goal_career')->nullable();
+            $table->text('description')->nullable();
+            $table->decimal('expected_salary', 10, 2)->nullable();
+            $table->date('date_of_birth')->nullable();
             $table->timestamps();
         });
     }

@@ -24,6 +24,7 @@ class InternshipSeeder extends Seeder
                     'company_id' => $companyId,
                     'title' => $faker->jobTitle,
                     'description' => $faker->paragraph,
+                    'image_cover' => $faker->imageUrl(),
                     'location' => $faker->city,
                     'responsibilities' => $faker->text(100),
                     'requirements' => $faker->text(100),

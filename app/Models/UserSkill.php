@@ -8,18 +8,11 @@ class UserSkill extends Model
 {
     protected $fillable = [
         'talent_id',
-        'skill_id',
-        'proficiency',
-        'years_of_experience',
+        'name',
     ];
 
     public function talent()
     {
         return $this->belongsTo(Talent::class);
-    }
-
-    public function skill()
-    {
-        return $this->belongsTo(Skill::class);
     }
 }

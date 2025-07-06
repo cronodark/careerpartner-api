@@ -14,12 +14,8 @@ return new class extends Migration
         Schema::create('user_skills', function (Blueprint $table) {
             $table->id();
             $table->foreignId('talent_id')->constrained('talents')->onDelete('cascade');
-            $table->foreignId('skill_id')->constrained('skills')->onDelete('cascade');
-            $table->enum('proficiency', ['beginner', 'intermediate', 'advanced'])->default('beginner');
-            $table->string('years_of_experience')->nullable();
+            $table->string('name');
             $table->timestamps();
-
-            $table->unique(['talent_id', 'skill_id']);
         });
     }
 

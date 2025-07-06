@@ -49,9 +49,7 @@ class TalentController extends Controller
         $talent->update($data->validated());
         return response()->json([
             'status' => 'success',
-            'data' => [
-                'talent' => $talent,
-            ]
+            'message' => 'Talent profile updated successfully',
         ], Response::HTTP_OK);
     }
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\talent\ExperienceController;
 use App\Http\Controllers\talent\InterestController;
 use App\Http\Controllers\talent\SkillController;
 use App\Http\Controllers\talent\TalentController;
@@ -19,6 +20,9 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/talent/skills', [SkillController::class, 'index'])->name('talent.skills');
         Route::post('/talent/skills', [SkillController::class, 'store'])->name('talent.skills.store');
         Route::delete('/talent/skills/{id}', [SkillController::class, 'destroy'])->name('talent.skills.destroy');
+        Route::get('/talent/experience', [ExperienceController::class, 'index'])->name('talent.experience');
+        Route::post('/talent/experience', [ExperienceController::class, 'store'])->name('talent.experience.store');
+        Route::delete('/talent/experience/{id}', [ExperienceController::class, 'destroy'])->name('talent.experience.destroy');
     });
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

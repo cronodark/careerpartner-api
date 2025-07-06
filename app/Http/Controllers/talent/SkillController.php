@@ -38,7 +38,6 @@ class SkillController extends Controller
 
         foreach ($validator->validated()['skills'] as $skillData) {
             $talent->skills()->create([
-                'talent_id' => $talent->id,
                 'name' => $skillData['name']
             ]);
             $createdSkillsCount++;

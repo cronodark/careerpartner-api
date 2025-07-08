@@ -3,8 +3,10 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\talent\ExperienceController;
 use App\Http\Controllers\talent\InterestController;
+use App\Http\Controllers\talent\InternshipController;
 use App\Http\Controllers\talent\SkillController;
 use App\Http\Controllers\talent\TalentController;
+use App\Http\Controllers\talent\VolunteerController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -23,6 +25,9 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/talent/experience', [ExperienceController::class, 'index'])->name('talent.experience');
         Route::post('/talent/experience', [ExperienceController::class, 'store'])->name('talent.experience.store');
         Route::delete('/talent/experience/{id}', [ExperienceController::class, 'destroy'])->name('talent.experience.destroy');
+        Route::get('/talent/internships', [InternshipController::class, 'index'])->name('talent.internships');
+        Route::get('/talent/volunteer', [VolunteerController::class, 'index'])->name('talent.volunteer');
+
     });
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

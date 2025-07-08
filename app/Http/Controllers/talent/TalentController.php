@@ -12,13 +12,14 @@ class TalentController extends Controller
 {
     public function index()
     {
-        $talent = auth()->user()->talent->load([
-            'skills',
-            'experiences',
-            'projects',
-            'achievements',
-            'interests',
-            'educationHistories'
+        $talent = auth()->user()->load([
+            'talent',
+            'talent.skills',
+            'talent.experiences',
+            'talent.projects',
+            'talent.achievements',
+            'talent.interests',
+            'talent.educationHistories'
         ]);
         return response()->json([
             'status' => 'success',

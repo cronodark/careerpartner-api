@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\talent\EducationHistoryController;
 use App\Http\Controllers\talent\ExperienceController;
 use App\Http\Controllers\talent\InterestController;
 use App\Http\Controllers\talent\InternshipController;
@@ -15,6 +16,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::middleware('role:talent')->group(function () {
         Route::get('/talent', [TalentController::class, 'index'])->name('talent.index');
         Route::put('/talent', [TalentController::class, 'update'])->name('talent.update');
+        Route::post('/talent/user', [TalentController::class, 'userUpdate'])->name('talent.user.update');
         Route::delete('/talent', [TalentController::class, 'destroy'])->name('talent.destroy');
         Route::get('/talent/interests', [InterestController::class, 'index'])->name('talent.interests');
         Route::post('/talent/interests', [InterestController::class, 'store'])->name('talent.interests.store');
@@ -22,7 +24,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/talent/skills', [SkillController::class, 'index'])->name('talent.skills');
         Route::post('/talent/skills', [SkillController::class, 'store'])->name('talent.skills.store');
         Route::delete('/talent/skills/{id}', [SkillController::class, 'destroy'])->name('talent.skills.destroy');
-        Route::get('/talent/experience', [ExperienceController::class, 'index'])->name('talent.experience');
+        Route::get('/talent/education', [EducationHistoryController::class, 'index'])->name('talent.education');
+        Route::post('/talent/education', [EducationHistoryController::class, 'store'])->name('talent.education.store');
+        Route::put('/talent/education/{id}', [EducationHistoryController::class, 'update'])->name('talent.education.update');
+        Route::delete('/talent/education/{id}', [EducationHistoryController::class, 'destroy'])->name('talent.education.destroy');        Route::get('/talent/experience', [ExperienceController::class, 'index'])->name('talent.experience');
         Route::post('/talent/experience', [ExperienceController::class, 'store'])->name('talent.experience.store');
         Route::delete('/talent/experience/{id}', [ExperienceController::class, 'destroy'])->name('talent.experience.destroy');
         Route::get('/talent/internships', [InternshipController::class, 'index'])->name('talent.internships');

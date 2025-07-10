@@ -6,6 +6,7 @@ use App\Http\Controllers\talent\EducationHistoryController;
 use App\Http\Controllers\talent\ExperienceController;
 use App\Http\Controllers\talent\InterestController;
 use App\Http\Controllers\talent\InternshipController;
+use App\Http\Controllers\talent\ProjectController;
 use App\Http\Controllers\talent\SkillController;
 use App\Http\Controllers\talent\TalentController;
 use App\Http\Controllers\talent\VolunteerController;
@@ -32,6 +33,9 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/talent/achievements', [AchievementController::class, 'index'])->name('talent.achievements');
         Route::post('/talent/achievements', [AchievementController::class, 'store'])->name('talent.achievements.store');
         Route::delete('/talent/achievements/{id}', [AchievementController::class, 'destroy'])->name('talent.achievements.destroy');
+        Route::get('/talent/projects', [ProjectController::class, 'index'])->name('talent.projects');
+        Route::post('/talent/projects', [ProjectController::class, 'store'])->name('talent.projects.store');
+        Route::delete('/talent/projects/{id}', [ProjectController::class, 'destroy'])->name('talent.projects.destroy');
         Route::post('/talent/experience', [ExperienceController::class, 'store'])->name('talent.experience.store');
         Route::delete('/talent/experience/{id}', [ExperienceController::class, 'destroy'])->name('talent.experience.destroy');
         Route::get('/talent/internships', [InternshipController::class, 'index'])->name('talent.internships');

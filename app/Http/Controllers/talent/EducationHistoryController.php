@@ -94,6 +94,8 @@ class EducationHistoryController extends Controller
 
         $educationHistory->update($validator->validated());
 
+        
+
         return response()->json([
             'status' => 'success',
             'message' => 'Riwayat pendidikan berhasil diperbarui',

@@ -30,7 +30,7 @@ class EducationHistoryController extends Controller
         $validator = Validator::make($request->all(), [
             'institution_name' => 'required|string|max:255',
             'field_of_study' => 'required|string|max:255',
-            'start_year' => 'required|integer|digits:4|before_or_equal:today',
+            'start_year' => 'required|integer|digits:4|before_or_equal:'.date('Y'),
             'end_year' => 'nullable|integer|digits:4|after_or_equal:start_year',
         ]);
 
@@ -63,7 +63,7 @@ class EducationHistoryController extends Controller
         $validator = Validator::make($request->all(), [
             'institution_name' => 'sometimes|required|string|max:255',
             'field_of_study' => 'sometimes|required|string|max:255',
-            'start_year' => 'sometimes|required|integer|digits:4|before_or_equal:today',
+            'start_year' => 'sometimes|required|integer|digits:4|before_or_equal:'.date('Y'),
             'end_year' => 'sometimes|required|nullable|integer|digits:4|after_or_equal:start_year',
         ]);
 
@@ -93,8 +93,6 @@ class EducationHistoryController extends Controller
         }
 
         $educationHistory->update($validator->validated());
-
-        
 
         return response()->json([
             'status' => 'success',

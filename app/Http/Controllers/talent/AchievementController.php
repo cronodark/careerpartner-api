@@ -64,6 +64,38 @@ class AchievementController extends Controller
         ], Response::HTTP_CREATED);
     }
 
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'title' => 'sometimes|required|string|max:255',
+            'nomination' => 'sometimes|required|string|max:500',
+            'year' => 'sometimes|required|integer|min:1900|max:' . date('Y'),
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $validator->errors(),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $achievement = auth()->user()->talent->achievements()->find($id);
+
+        if (!$achievement) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Achievement not found',
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $achievement->update($validator->validated());
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Achievement updated successfully',
+        ], Response::HTTP_OK);
+    }
+
     public function destroy($id)
     {
         $achievement = auth()->user()->talent->achievements()->find($id);

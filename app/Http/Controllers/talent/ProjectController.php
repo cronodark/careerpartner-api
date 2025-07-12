@@ -49,6 +49,46 @@ class ProjectController extends Controller
         ], Response::HTTP_CREATED);
     }
 
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'title' => 'sometimes|required|string|max:255',
+            'image' => 'sometimes|required|image|mimes:jpeg,png,jpg,gif,svg',
+            'link' => 'sometimes|required|url',
+            'year' => 'sometimes|required|integer|digits:4',
+        ]);
+
+        $validatedData = $validator->validated();
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors(),
+            ], Response::HTTP_UNPROCESSABLE_ENTITY);
+        }
+
+        $project = auth()->user()->talent->projects()->find($id);
+
+        if (!$project) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Project not found',
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('projects', 'public');
+            $validatedData['image'] = $imagePath;
+        }
+
+        $project->update($validatedData);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Project updated successfully',
+        ], Response::HTTP_OK);
+    }
+
     public function destroy($id)
     {
         $project = auth()->user()->talent->projects()->find($id);

@@ -36,6 +36,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::delete('/talent/achievements/{id}', [AchievementController::class, 'destroy'])->name('talent.achievements.destroy');
         Route::get('/talent/projects', [ProjectController::class, 'index'])->name('talent.projects');
         Route::post('/talent/projects', [ProjectController::class, 'store'])->name('talent.projects.store');
+        Route::post('/talent/projects/{id}', [ProjectController::class, 'update'])->name('talent.projects.update');
         Route::delete('/talent/projects/{id}', [ProjectController::class, 'destroy'])->name('talent.projects.destroy');
         Route::post('/talent/experience', [ExperienceController::class, 'store'])->name('talent.experience.store');
         Route::delete('/talent/experience/{id}', [ExperienceController::class, 'destroy'])->name('talent.experience.destroy');

@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             ExperienceSeeder::class,
             ProjectSeeder::class,
             EducationHistorySeeder::class,
+            LearningPathSeeder::class,
         ]);
     }
 }

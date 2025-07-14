@@ -52,4 +52,9 @@ class Talent extends Model
     {
         return $this->hasMany(EducationHistory::class);
     }
+
+    public function learningPaths()
+    {
+        return $this->hasMany(LearningPath::class);
+    }
 }

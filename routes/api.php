@@ -41,7 +41,10 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/talent/experience', [ExperienceController::class, 'store'])->name('talent.experience.store');
         Route::delete('/talent/experience/{id}', [ExperienceController::class, 'destroy'])->name('talent.experience.destroy');
         Route::get('/talent/internships', [InternshipController::class, 'index'])->name('talent.internships');
-        Route::get('/talent/volunteer', [VolunteerController::class, 'index'])->name('talent.volunteer');
+        Route::get('/talent/internships/{id}', [InternshipController::class, 'show'])->name('talent.internships.show');
+        Route::get('/talent/volunteers', [VolunteerController::class, 'index'])->name('talent.volunteers');
+        Route::get('/talent/volunteers/{id}', [VolunteerController::class, 'show'])->name('talent.volunteers.show');
+
     });
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

@@ -11,7 +11,23 @@ class VolunteerController extends Controller
 {
     public function index()
     {
-        $volunteer = VolunteerActivity::orderBy('created_at', 'desc')->get();
+        $volunteer = VolunteerActivity::where('status', 'open')->orderBy('created_at', 'desc')->get();
+        return response()->json([
+            'status' => 'success',
+            'data' => $volunteer
+        ], Response::HTTP_OK);
+    }
+
+    public function show($id)
+    {
+        $volunteer = VolunteerActivity::find($id);
+        $volunteer->load(['organization', 'skills']);
+        if (!$volunteer) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Volunteer activity not found'
+            ], Response::HTTP_NOT_FOUND);
+        }
         return response()->json([
             'status' => 'success',
             'data' => $volunteer

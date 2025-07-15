@@ -30,7 +30,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/talent/education', [EducationHistoryController::class, 'index'])->name('talent.education');
         Route::post('/talent/education', [EducationHistoryController::class, 'store'])->name('talent.education.store');
         Route::put('/talent/education/{id}', [EducationHistoryController::class, 'update'])->name('talent.education.update');
-        Route::delete('/talent/education/{id}', [EducationHistoryController::class, 'destroy'])->name('talent.education.destroy');        Route::get('/talent/experience', [ExperienceController::class, 'index'])->name('talent.experience');
+        Route::delete('/talent/education/{id}', [EducationHistoryController::class, 'destroy'])->name('talent.education.destroy');        
         Route::get('/talent/achievements', [AchievementController::class, 'index'])->name('talent.achievements');
         Route::post('/talent/achievements', [AchievementController::class, 'store'])->name('talent.achievements.store');
         Route::put('/talent/achievements/{id}', [AchievementController::class, 'update'])->name('talent.achievements.update');
@@ -39,10 +39,13 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/talent/projects', [ProjectController::class, 'store'])->name('talent.projects.store');
         Route::post('/talent/projects/{id}', [ProjectController::class, 'update'])->name('talent.projects.update');
         Route::delete('/talent/projects/{id}', [ProjectController::class, 'destroy'])->name('talent.projects.destroy');
+        Route::get('/talent/experience', [ExperienceController::class, 'index'])->name('talent.experience');
         Route::post('/talent/experience', [ExperienceController::class, 'store'])->name('talent.experience.store');
         Route::delete('/talent/experience/{id}', [ExperienceController::class, 'destroy'])->name('talent.experience.destroy');
         Route::get('/talent/internships', [InternshipController::class, 'index'])->name('talent.internships');
-        Route::get('/talent/volunteer', [VolunteerController::class, 'index'])->name('talent.volunteer');
+        Route::get('/talent/internships/{id}', [InternshipController::class, 'show'])->name('talent.internships.show');
+        Route::get('/talent/volunteers', [VolunteerController::class, 'index'])->name('talent.volunteers');
+        Route::get('/talent/volunteers/{id}', [VolunteerController::class, 'show'])->name('talent.volunteers.show');
         Route::get('/talent/learning-paths', [LearningPathController::class, 'index'])->name('talent.learning-paths');
         Route::post('/talent/learning-path-generation', [LearningPathController::class, 'generate'])->name('talent.learning-path.generate');
     });

@@ -6,6 +6,7 @@ use App\Http\Controllers\talent\EducationHistoryController;
 use App\Http\Controllers\talent\ExperienceController;
 use App\Http\Controllers\talent\InterestController;
 use App\Http\Controllers\talent\InternshipController;
+use App\Http\Controllers\talent\LearningPathController;
 use App\Http\Controllers\talent\ProjectController;
 use App\Http\Controllers\talent\SkillController;
 use App\Http\Controllers\talent\TalentController;
@@ -42,6 +43,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::delete('/talent/experience/{id}', [ExperienceController::class, 'destroy'])->name('talent.experience.destroy');
         Route::get('/talent/internships', [InternshipController::class, 'index'])->name('talent.internships');
         Route::get('/talent/volunteer', [VolunteerController::class, 'index'])->name('talent.volunteer');
+        Route::get('/talent/learning-paths', [LearningPathController::class, 'index'])->name('talent.learning-paths');
+        Route::post('/talent/learning-path-generation', [LearningPathController::class, 'generate'])->name('talent.learning-path.generate');
     });
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

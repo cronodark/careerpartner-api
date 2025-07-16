@@ -23,11 +23,11 @@ class InternshipSeeder extends Seeder
                 Internship::create([
                     'company_id' => $companyId,
                     'title' => $faker->jobTitle,
-                    'description' => $faker->paragraph,
                     'image_cover' => $faker->imageUrl(),
                     'location' => $faker->city,
                     'responsibilities' => $faker->text(100),
                     'requirements' => $faker->text(100),
+                    'offer' => $faker->text(50),
                     'status' => $faker->randomElement(['open', 'closed', 'draft']),
                     'created_at' => now(),
                     'updated_at' => now(),

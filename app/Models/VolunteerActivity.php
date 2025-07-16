@@ -12,7 +12,8 @@ class VolunteerActivity extends Model
         'description',
         'location',
         'status',
-        'image_cover'
+        'image_cover',
+        'detail_activity'
     ];
 
     public function organization()

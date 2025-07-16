@@ -15,6 +15,7 @@ class Internship extends Model
         'responsibilities',
         'requirements',
         'status',
+        'offer'
     ];
 
     public function company()

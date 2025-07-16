@@ -23,6 +23,7 @@ class CompanySeeder extends Seeder
                 'name' => $faker->company,
                 'logo' => $faker->imageUrl(640, 480, 'business', true, 'Faker'),
                 'industry' => $faker->randomElement(['Technology', 'Finance', 'Healthcare', 'Education', 'Retail']),
+                'description' => $faker->sentence(10),
                 'headquarters_address' => $faker->address,
                 'website' => $faker->url,
                 'contact_email' => $faker->email,

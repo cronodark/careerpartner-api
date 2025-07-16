@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('company_id')->constrained('companies')->onDelete('cascade');
             $table->string('title');
-            $table->text('description');
             $table->string('image_cover')->nullable();
             $table->string('location');
             $table->text('responsibilities');
             $table->text('requirements');
+            $table->text('offer')->nullable();
             $table->enum('status', ['open', 'closed', 'draft'])->default('open');
             $table->timestamps();
         });

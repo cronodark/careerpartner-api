@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('organization_id')->constrained('organizations')->onDelete('cascade');
             $table->string('title');
             $table->text('description');
+            $table->text('detail_activity');
             $table->string('location');
             $table->enum('status', ['open', 'closed', 'completed', 'cancelled'])->default('open');
             $table->string('image_cover')->nullable();

@@ -24,6 +24,7 @@ class VolunteerActivitySeeder extends Seeder
                     'organization_id' => $organization,
                     'title' => $faker->sentence(3),
                     'description' => $faker->paragraph,
+                    'detail_activity' => $faker->paragraph(5),
                     'location' => $faker->city,
                     'status' => $faker->randomElement(['open', 'closed', 'completed', 'cancelled']),
                     'created_at' => now(),

@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('/talent', [TalentController::class, 'update'])->name('talent.update');
         Route::delete('/talent', [TalentController::class, 'destroy'])->name('talent.destroy');
         Route::post('/talent/user', [TalentController::class, 'userUpdate'])->name('talent.user.update');
-        Route::get('/talent/profile-generation', [TalentController::class, 'aiGenerateProfile'])->name('talent.profile.generation');
+        Route::post('/talent/profile-generation', [TalentController::class, 'aiGenerateProfile'])->name('talent.profile.generation');
         Route::get('/talent/interests', [InterestController::class, 'index'])->name('talent.interests');
         Route::post('/talent/interests', [InterestController::class, 'store'])->name('talent.interests.store');
         Route::delete('/talent/interests/{id}', [InterestController::class, 'destroy'])->name('talent.interests.destroy');

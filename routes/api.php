@@ -21,6 +21,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::put('/talent', [TalentController::class, 'update'])->name('talent.update');
         Route::delete('/talent', [TalentController::class, 'destroy'])->name('talent.destroy');
         Route::post('/talent/user', [TalentController::class, 'userUpdate'])->name('talent.user.update');
+        Route::get('/talent/profile-generation', [TalentController::class, 'aiGenerateProfile'])->name('talent.profile.generation');
         Route::get('/talent/interests', [InterestController::class, 'index'])->name('talent.interests');
         Route::post('/talent/interests', [InterestController::class, 'store'])->name('talent.interests.store');
         Route::delete('/talent/interests/{id}', [InterestController::class, 'destroy'])->name('talent.interests.destroy');
@@ -30,7 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/talent/education', [EducationHistoryController::class, 'index'])->name('talent.education');
         Route::post('/talent/education', [EducationHistoryController::class, 'store'])->name('talent.education.store');
         Route::put('/talent/education/{id}', [EducationHistoryController::class, 'update'])->name('talent.education.update');
-        Route::delete('/talent/education/{id}', [EducationHistoryController::class, 'destroy'])->name('talent.education.destroy');        
+        Route::delete('/talent/education/{id}', [EducationHistoryController::class, 'destroy'])->name('talent.education.destroy');
         Route::get('/talent/achievements', [AchievementController::class, 'index'])->name('talent.achievements');
         Route::post('/talent/achievements', [AchievementController::class, 'store'])->name('talent.achievements.store');
         Route::put('/talent/achievements/{id}', [AchievementController::class, 'update'])->name('talent.achievements.update');

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->text('detail_activity');
             $table->string('location');
+            $table->string('link');
             $table->enum('status', ['open', 'closed', 'completed', 'cancelled'])->default('open');
             $table->string('image_cover')->nullable();
             $table->timestamps();

@@ -11,6 +11,7 @@ class VolunteerActivity extends Model
         'title',
         'description',
         'location',
+        'link',
         'status',
         'image_cover',
         'detail_activity'

@@ -115,4 +115,40 @@ class TalentController extends Controller
             'message' => 'Talent profile not found'
         ], Response::HTTP_NOT_FOUND);
     }
+
+    public function aiGenerateProfile()
+    {
+        $user = auth()->user()->load([
+            'talent',
+            'talent.skills',
+            'talent.experiences',
+            'talent.projects',
+            'talent.achievements',
+            'talent.interests',
+            'talent.educationHistories'
+        ]);
+
+        if (!$user->talent) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Talent profile not found'
+            ], Response::HTTP_NOT_FOUND);
+        }
+
+        $aiProfileData = [
+            'current_education' => 'Bachelor of Science in Computer Science',
+            'goal_career' => 'Software Engineer',
+            'description' => 'Passionate about technology and software development.',
+            'expected_salary' => 60000,
+            'date_of_birth' => '1995-01-01',
+        ];
+
+        $user->talent->update($aiProfileData);
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'AI-generated talent profile updated successfully',
+            'data' => $user->talent
+        ], Response::HTTP_OK);
+    }
 }

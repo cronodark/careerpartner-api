@@ -31,7 +31,7 @@ class ExperienceController extends Controller
             return response()->json([
                 'status' => 'error',
                 'errors' => $validator->errors(),
-            ], 422);
+            ], Response::HTTP_BAD_REQUEST);
         }
 
         $experiencesCount = 0;

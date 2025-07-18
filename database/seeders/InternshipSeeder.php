@@ -21,7 +21,6 @@ class InternshipSeeder extends Seeder
         $staticInternships = [
             [
                 'title' => 'Intern Software Engineer (Backend)',
-                'description' => 'Membangun dan memelihara API serta layanan backend untuk aplikasi skala besar. Belajar teknologi Go/Java/Node.js.',
                 'image_cover' => 'https://placehold.co/600x400?text=Internship',
                 'location' => 'Jakarta Selatan, DKI Jakarta',
                 'status' => 'open',
@@ -38,7 +37,6 @@ class InternshipSeeder extends Seeder
             ],
             [
                 'title' => 'Intern Frontend Developer (React/Vue)',
-                'description' => 'Berpartisipasi dalam pengembangan antarmuka pengguna interaktif menggunakan React atau Vue.js.',
                 'image_cover' => 'https://placehold.co/600x400?text=Internship',
                 'location' => 'Bandung, Jawa Barat',
                 'status' => 'open',
@@ -55,7 +53,6 @@ class InternshipSeeder extends Seeder
             ],
             [
                 'title' => 'Intern UI/UX Designer',
-                'description' => 'Merancang pengalaman pengguna yang intuitif dan menarik untuk produk digital perusahaan.',
                 'image_cover' => 'https://placehold.co/600x400?text=Internship',
                 'location' => 'Yogyakarta, DI Yogyakarta',
                 'status' => 'closed',
@@ -72,7 +69,6 @@ class InternshipSeeder extends Seeder
             ],
             [
                 'title' => 'Intern Digital Marketing Specialist',
-                'description' => 'Membantu tim marketing dalam mengelola kampanye digital, SEO, dan manajemen media sosial.',
                 'image_cover' => 'https://placehold.co/600x400?text=Internship',
                 'location' => 'Surabaya, Jawa Timur',
                 'status' => 'open',
@@ -89,7 +85,6 @@ class InternshipSeeder extends Seeder
             ],
             [
                 'title' => 'Intern Data Analyst',
-                'description' => 'Membantu mengumpulkan, menganalisis, dan menginterpretasi data untuk mendukung pengambilan keputusan bisnis.',
                 'image_cover' => 'https://placehold.co/600x400?text=Internship',
                 'location' => 'Jakarta Pusat, DKI Jakarta',
                 'status' => 'open',
@@ -106,7 +101,6 @@ class InternshipSeeder extends Seeder
             ],
             [
                 'title' => 'Intern Quality Assurance (QA) Engineer',
-                'description' => 'Melakukan pengujian perangkat lunak untuk memastikan kualitas dan keandalan produk.',
                 'image_cover' => 'https://placehold.co/600x400?text=Internship',
                 'location' => 'Jakarta Barat, DKI Jakarta',
                 'status' => 'open',
@@ -130,7 +124,6 @@ class InternshipSeeder extends Seeder
                 Internship::create([
                     'company_id' => $companyId,
                     'title' => $internship['title'],
-                    'description' => $internship['description'],
                     'location' => $internship['location'],
                     'image_cover' => $internship['image_cover'],
                     'responsibilities' => json_encode($internship['responsibilities_base']),

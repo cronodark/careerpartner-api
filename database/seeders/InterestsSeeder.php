@@ -18,16 +18,15 @@ class InterestsSeeder extends Seeder
         $faker = Factory::create();
         $talents = Talent::all()->pluck('id')->toArray();
         $interest = [
-            'Business Analyst',
-            'Data Analyst',
-            'Data Scientist',
-            'Developer',
-            'Martketing',
-            'Finance',
-            'Design',
-            'Science',
-            'Engineering',
-            'Game Development',
+            "Business Analyst",
+            "Sports & Wellness",
+            "Marketing",
+            "Finance",
+            "Education & Learning",
+            "Science and Technology",
+            "Art and Design",
+            "Entrepreneurship",
+            "Social Impact"
         ];
 
         foreach ($talents as $talentId) {

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('logo')->nullable();
-            $table->string('description');
+            $table->text('description');
             $table->string('contact_email')->nullable();
             $table->string('contact_phone')->nullable();
             $table->enum('status', ['active', 'inactive', 'pending'])->default('active');

@@ -16,6 +16,7 @@ class Talent extends Model
         'description',
         'expected_salary',
         'date_of_birth',
+        'job_opportunity'
     ];
 
     public function user()

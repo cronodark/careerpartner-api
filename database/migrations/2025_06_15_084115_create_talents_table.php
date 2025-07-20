@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->decimal('expected_salary', 10, 2)->nullable();
             $table->date('date_of_birth')->nullable();
+            $table->string('job_opportunity')->nullable();
             $table->timestamps();
         });
     }

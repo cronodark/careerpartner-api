@@ -50,7 +50,7 @@ class LearningPathController extends Controller
 
     public function update(Request $request, $id)
     {
-        $learningPath = auth()->user()->learningPaths()->findOrFail($id);
+        $learningPath = auth()->user()->talent->learningPaths()->findOrFail($id);
 
         if (!$learningPath) {
             return response()->json([
@@ -75,7 +75,7 @@ class LearningPathController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'data' => $learningPath
+            'message' => 'Learning path updated successfully.',
         ], Response::HTTP_OK);
     }
 
@@ -97,7 +97,7 @@ class LearningPathController extends Controller
         ], Response::HTTP_NOT_FOUND);
     }
 
-    public function generate(Request $request)
+    public function generate()
     {
         $user = auth()->user();
         if (!$user->talent || !$user) {
@@ -246,6 +246,7 @@ class LearningPathController extends Controller
             Based on the provided information, suggest 3-5 distinct learning paths. Each suggestion should:
             1. Have a concise "title" (e.g., "Mastering Advanced React Development").
             2. Provide a platform where the learning path can be accessed (e.g., "https://example.com/learning-path").
+            3. Give the source of the learning path (e.g., "Dicoding", "Youtube Video", "Coursera", "W3SSchools").
 
             Format your output as a JSON array of objects.
             Example:
@@ -254,6 +255,7 @@ class LearningPathController extends Controller
                     {
                         "title": "Mastering Advanced React Development",
                         "url": "https://example.com/learning-path",
+                        "source": "Dicoding"
                     },
                     ...
                 ]

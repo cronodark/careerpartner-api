@@ -23,6 +23,7 @@ class TalentSeeder extends Seeder
                 'user_id' => $user,
                 'current_education' => $faker->randomElement(['High School', 'Bachelor\'s Degree', 'Master\'s Degree', 'PhD']),
                 'goal_career' => $faker->jobTitle,
+                'job_opportunity' => $faker->randomElement(['Junior Developer', 'Medium Developer', 'Senior Developer']),
                 'description' => $faker->paragraph(rand(1, 3)),
                 'expected_salary' => $faker->numberBetween(30000, 120000),
                 'date_of_birth' => $faker->date(),

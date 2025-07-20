@@ -49,6 +49,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/talent/volunteers/{id}', [VolunteerController::class, 'show'])->name('talent.volunteers.show');
         Route::get('/talent/learning-paths', [LearningPathController::class, 'index'])->name('talent.learning-paths');
         Route::post('/talent/learning-path-generation', [LearningPathController::class, 'generate'])->name('talent.learning-path.generate');
+        Route::put('/talent/learning-paths/{id}', [LearningPathController::class, 'update'])->name('talent.learning-paths.update');
     });
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

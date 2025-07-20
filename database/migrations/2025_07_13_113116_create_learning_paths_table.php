@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('url');
             $table->boolean('is_done')->default(false);
             $table->foreignId('talent_id')->constrained('talents')->onDelete('cascade');
+            $table->string('source')->nullable();
             $table->timestamps();
         });
     }

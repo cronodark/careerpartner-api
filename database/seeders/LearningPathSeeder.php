@@ -25,6 +25,7 @@ class LearningPathSeeder extends Seeder
                     'url' => $faker->url,
                     'is_done' => $faker->boolean,
                     'talent_id' => $talentId,
+                    'source' => $faker->randomElement(['Online Course', 'Book', 'Workshop', 'Webinar', null]),
                 ]);
             }
         }

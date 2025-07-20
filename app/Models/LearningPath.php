@@ -10,6 +10,7 @@ class LearningPath extends Model
         'title',
         'url',
         'is_done',
+        'source',
         'talent_id'
     ];
 

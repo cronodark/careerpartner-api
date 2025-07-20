@@ -244,14 +244,6 @@ class TalentController extends Controller
                 'message' => 'Failed to connect to Gemini API: ' . $e->getMessage()
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
-
-        // $user->talent->update($aiProfileData);
-
-        // return response()->json([
-        //     'status' => 'success',
-        //     'message' => 'AI-generated talent profile updated successfully',
-        //     'data' => $user->talent
-        // ], Response::HTTP_OK);
     }
 
     private function craftGeminiPrompt(array $data): string
@@ -280,7 +272,7 @@ class TalentController extends Controller
 
             Based on the provided information, suggest goal career, career description, expected salary in IDR (Rupiah), and job opportunities that align with the user's profile. The suggestions should be realistic and tailored to the user's skills, experiences, and aspirations.
             1. Career Goal: Provide a clear and achievable career goal that aligns with the user's skills and interests. Example: Backend Developer, Data Scientist, etc.
-            2. Career Description: Provide a brief description of the career goal, including key responsibilities in form of a paragraph.
+            2. Career Description: Provide a brief description of the career goal, including key responsibilities in form of a paragraph. Ensure the description is concise and relevant to the career goal and didn't include any unnecessary details or opening sentences.
             3. Expected Salary: Provide a realistic expected salary in IDR (Rupiah) based on the user's skills and experiences.
             4. Job Opportunities: Suggest a possible job opportunity that the user can pursue to achieve their career goal. Example: "Junior Backend Developer".
 
